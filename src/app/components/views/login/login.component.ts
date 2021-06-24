@@ -33,18 +33,17 @@ export class LoginComponent implements OnInit {
 
       if (this.loginResponse.token != "") {
         const dados = tokenService.parseJwt(this.loginResponse.token);
-        console.log(dados);
-        const usuario = {
+        /*const usuario = {
           id: dados.id,
           nome: dados.nome,
           cpf: dados.cpf,
           email: dados.email,
           senha: dados.senha
-        };
+        };*/
 
         this.authService.mostrarMenuEmitter.emit(true);
         this.authService.usuarioAutenticado = true;
-        this.authService.setUser(usuario);
+        //this.authService.setUser(usuario);
         this.authService.setToken(this.loginResponse.token);
         this.authService.setTipoToken(this.loginResponse.tipo);
         this.router.navigate(["/curso"]);

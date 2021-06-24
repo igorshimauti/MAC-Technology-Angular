@@ -33,6 +33,7 @@ export class AuthService {
 		localStorage.removeItem("usuario");
 		delete this.usuario;
 		delete this.token;
+    this.mostrarMenuEmitter.emit(false);
   }
 
   estaAutenticado() {
