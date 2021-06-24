@@ -3,11 +3,11 @@
         <img class="logo" src="assets/logo.jpg" alt="logo">
     </span>
     <span>
-        <a routerLink="">
-            <i class="material-icons">
+        <button *ngIf="mostrarLogout" mat-raised-button (click)="logout()">
+            Logout
+            <i class="material-icons right">
                 logout
             </i>
-            Logout
-        </a>
+        </button>
     </span>
 </mat-toolbar>

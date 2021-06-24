@@ -14,6 +14,7 @@ export class AuthService {
 
 	usuario: any;
 	token: string | undefined;
+  tipoToken: string | undefined;
 
   usuarioAutenticado: boolean = false;
   mostrarMenuEmitter = new EventEmitter<boolean>();
@@ -28,6 +29,7 @@ export class AuthService {
 
   logout(): void {
 		localStorage.removeItem("token");
+    localStorage.removeItem("tipoToken");
 		localStorage.removeItem("usuario");
 		delete this.usuario;
 		delete this.token;
@@ -47,6 +49,11 @@ export class AuthService {
 		localStorage.setItem("token", token);
 	}
 
+	setTipoToken(tipoToken: string): void {
+		this.tipoToken = tipoToken;
+		localStorage.setItem("tipoToken", tipoToken);
+	}
+  
   showMessage(msg: string): void {
     this.snackBar.open(msg, '', {
       duration: 3000,

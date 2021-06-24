@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
         this.authService.usuarioAutenticado = true;
         this.authService.setUser(usuario);
         this.authService.setToken(this.loginResponse.token);
+        this.authService.setTipoToken(this.loginResponse.tipo);
         this.router.navigate(["/curso"]);
       }
     });

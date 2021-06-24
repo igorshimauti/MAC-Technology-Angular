@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Curso } from './curso.model';
@@ -6,6 +6,7 @@ import { Curso } from './curso.model';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Aluno } from '../aluno-crud/aluno.model';
+import { AuthService } from '../views/login/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,9 @@ export class CursoService {
 
   baseUrl = "https://mac-courses.herokuapp.com/mac-courses/curso";
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, 
+    private http: HttpClient,
+    private authService: AuthService) { }
 
   errorHandler(e: any): Observable<any> {
     this.showMessage("Erro efetuar a operação.", true);
@@ -31,7 +34,11 @@ export class CursoService {
   }
 
   read(): Observable<Curso[]> {
-    return this.http.get<Curso[]>(this.baseUrl);
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
+    return this.http.get<Curso[]>(this.baseUrl, { headers: httpHeader});
   }
 
   readById(id: string): Observable<Curso> {
