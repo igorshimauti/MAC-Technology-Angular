@@ -1,0 +1,79 @@
+<mat-card class="card-main">
+    <mat-card-title>Atualizar aluno</mat-card-title>
+    <form>
+        <mat-card class="card">
+            <mat-card-title>Dados pessoais</mat-card-title>
+            <mat-form-field>
+                <input matInput name="nome" placeholder="Nome" [(ngModel)]="aluno.nome">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="cpf" placeholder="CPF" [(ngModel)]="aluno.cpf">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="date" name="dataNascimento" placeholder="Data de nascimento" [(ngModel)]="aluno.dataNascimento">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="email" placeholder="e-Mail" [(ngModel)]="aluno.email">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="celular" placeholder="Celular" [(ngModel)]="aluno.celular">
+            </mat-form-field>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-title>Endereço residencial</mat-card-title>
+            <mat-form-field>
+                <input matInput name="cep" placeholder="CEP" [(ngModel)]="aluno.enderecoResidencial.cep">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="uf" placeholder="UF" [(ngModel)]="aluno.enderecoResidencial.uf">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="cidade" placeholder="Cidade" [(ngModel)]="aluno.enderecoResidencial.cidade">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="bairro" placeholder="Bairro" [(ngModel)]="aluno.enderecoResidencial.bairro">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="logradouro" placeholder="Logradouro" [(ngModel)]="aluno.enderecoResidencial.logradouro">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="numero" placeholder="Número" [(ngModel)]="aluno.enderecoResidencial.numero">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="complemento" placeholder="Complemento" [(ngModel)]="aluno.enderecoResidencial.complemento">
+            </mat-form-field>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-title>Matriculas</mat-card-title>
+            <table mat-table [dataSource]="cursos">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>Id</th>
+                    <td mat-cell *matCellDef="let row">{{row.id}}</td>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef>Nome</th>
+                    <td mat-cell *matCellDef="let row">{{row.nome}}</td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="matriculado">
+                    <th mat-header-cell *matHeaderCellDef>Matriculado(a)</th>
+                    <td mat-cell *matCellDef="let row">
+                        <input id="{{row.id}}" type="checkbox">
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card>
+    </form>
+    <button mat-raised-button (click)="update()">
+        Atualizar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

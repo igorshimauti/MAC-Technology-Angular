@@ -1,0 +1,18 @@
+.login .title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.login .subtitle {
+    font-size: 1.1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin-right: 5px;
+}

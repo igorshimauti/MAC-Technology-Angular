@@ -1,0 +1,54 @@
+<mat-card>
+    <mat-card-title>Novo aluno</mat-card-title>
+    <form>
+        <mat-card class="card">
+            <mat-card-title>Dados pessoais</mat-card-title>
+            <mat-form-field>
+                <input matInput name="nome" placeholder="Nome" [(ngModel)]="aluno.nome" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="cpf" placeholder="CPF" [(ngModel)]="aluno.cpf" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="dataNascimento" placeholder="Data de nascimento" [(ngModel)]="aluno.dataNascimento" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="email" placeholder="e-Mail" [(ngModel)]="aluno.email" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="celular" placeholder="Celular" [(ngModel)]="aluno.celular" disabled>
+            </mat-form-field>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-title>Endereço residencial</mat-card-title>
+            <mat-form-field>
+                <input matInput name="cep" placeholder="CEP" [(ngModel)]="aluno.enderecoResidencial.cep" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="uf" placeholder="UF" [(ngModel)]="aluno.enderecoResidencial.uf" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="cidade" placeholder="Cidade" [(ngModel)]="aluno.enderecoResidencial.cidade" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="bairro" placeholder="Bairro" [(ngModel)]="aluno.enderecoResidencial.bairro" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="logradouro" placeholder="Logradouro" [(ngModel)]="aluno.enderecoResidencial.logradouro" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="numero" placeholder="Número" [(ngModel)]="aluno.enderecoResidencial.numero" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="complemento" placeholder="Complemento" [(ngModel)]="aluno.enderecoResidencial.complemento" disabled>
+            </mat-form-field>
+        </mat-card>
+    </form>
+    <button mat-raised-button (click)="delete()" color="warn">
+        Excluir
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

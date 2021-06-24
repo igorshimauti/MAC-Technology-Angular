@@ -1,0 +1,24 @@
+<mat-card class="login mat-elevation-z3">
+    <mat-card class="card">
+        <mat-card-title class="title">
+            Bem vindo ao MAC-Courses!
+        </mat-card-title>
+        <mat-card-subtitle class="subtitle">
+            Sistema de gestão de cursos MAC
+        </mat-card-subtitle>
+        <mat-form-field>
+            <input matInput name="email" placeholder="e-Mail" [(ngModel)]="login.email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" name="senha" placeholder="Senha" [(ngModel)]="login.senha">
+        </mat-form-field>
+    </mat-card>
+    <mat-card>
+        <button mat-raised-button (click)="logar()" color="primary">
+            Login
+        </button>
+        <button mat-raised-button (click)="cadastrar()">
+            Cadastrar
+        </button>        
+    </mat-card>
+</mat-card>

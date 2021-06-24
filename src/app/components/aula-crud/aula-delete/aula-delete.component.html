@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>Excluir aula</mat-card-title>
+    <form>
+        <mat-card class="card">
+            <mat-card-title>Informações da aula</mat-card-title>
+            <mat-form-field>
+                <input matInput name="tema" placeholder="Tema" [(ngModel)]="aula.tema" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="date" name="data" placeholder="Data" [(ngModel)]="aula.data" disabled>
+            </mat-form-field>
+        </mat-card>
+    </form>
+    <button mat-raised-button (click)="delete()" color="warn">
+        Excluir
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

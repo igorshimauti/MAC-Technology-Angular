@@ -1,0 +1,54 @@
+<mat-card>
+    <mat-card-title>Excluir professor</mat-card-title>
+    <form>
+        <mat-card class="card">
+            <mat-card-title>Dados pessoais</mat-card-title>
+            <mat-form-field>
+                <input matInput name="nome" placeholder="Nome" [(ngModel)]="professor.nome" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="cpf" placeholder="CPF" [(ngModel)]="professor.cpf" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="dataNascimento" placeholder="Data de nascimento" [(ngModel)]="professor.dataNascimento" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="email" placeholder="e-Mail" [(ngModel)]="professor.email" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="celular" placeholder="Celular" [(ngModel)]="professor.celular" disabled>
+            </mat-form-field>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-title>Endereço residencial</mat-card-title>
+            <mat-form-field>
+                <input matInput name="cep" placeholder="CEP" [(ngModel)]="professor.enderecoResidencial.cep" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="uf" placeholder="UF" [(ngModel)]="professor.enderecoResidencial.uf" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="cidade" placeholder="Cidade" [(ngModel)]="professor.enderecoResidencial.cidade" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="bairro" placeholder="Bairro" [(ngModel)]="professor.enderecoResidencial.bairro" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="logradouro" placeholder="Logradouro" [(ngModel)]="professor.enderecoResidencial.logradouro" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="numero" placeholder="Número" [(ngModel)]="professor.enderecoResidencial.numero" disabled>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="complemento" placeholder="Complemento" [(ngModel)]="professor.enderecoResidencial.complemento" disabled>
+            </mat-form-field>
+        </mat-card>
+    </form>
+    <button mat-raised-button (click)="delete()">
+        Excluir
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

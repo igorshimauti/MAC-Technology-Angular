@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-title>Excluir curso</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput name="nome" placeholder="Nome" [(ngModel)]="curso.nome" disabled>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="delete()" color="warn">
+        Excluir
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

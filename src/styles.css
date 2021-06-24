@@ -1,0 +1,30 @@
+html, body { 
+    height: 100%;
+    width: 100%;
+    background-color: rgb(214, 214, 214);
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 1.25rem 0.9375rem 0rem 0rem;
+}
+
+.msg-success {
+    background-color: #28a745;
+    color: #fff
+}
+
+.msg-error {
+    background-color: #e35e6b;
+    color: #fff
+}
