@@ -11,10 +11,6 @@ export class UsuarioService {
 
   baseUrl = "https://mac-courses.herokuapp.com/mac-courses/usuario";
 
-  httpHeader = new HttpHeaders({
-    "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
-  });
-
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
   create(usuario: Usuario): Observable<Usuario> {
@@ -22,17 +18,25 @@ export class UsuarioService {
   }
 
   read(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.baseUrl, { headers: this.httpHeader });
+    return this.http.get<Usuario[]>(this.baseUrl);
   }
 
   readById(id: string): Observable<Usuario> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
     const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Usuario>(url, { headers: this.httpHeader });
+    return this.http.get<Usuario>(url, { headers: httpHeader });
   }
 
   update(usuario: Usuario): Observable<Usuario> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
     const url = `${this.baseUrl}/${usuario.id}`;
-    return this.http.put<Usuario>(url, usuario, { headers: this.httpHeader });
+    return this.http.put<Usuario>(url, usuario, { headers: httpHeader });
   }
 
   showMessage(msg: string): void {
