@@ -16,7 +16,7 @@ export class CursoReadComponent implements OnInit {
 
   ngOnInit(): void {
     this.cursoService.read().subscribe(cursos => {
-      this.cursos = cursos
+      this.cursos = cursos;
     })
   }
 }

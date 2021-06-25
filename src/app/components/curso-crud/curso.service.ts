@@ -6,7 +6,6 @@ import { Curso } from './curso.model';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Aluno } from '../aluno-crud/aluno.model';
-import { AuthService } from '../views/login/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +16,9 @@ export class CursoService {
 
   baseUrl = "https://mac-courses.herokuapp.com/mac-courses/curso";
 
-  httpHeader = new HttpHeaders({
-    "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
-  });
-
   constructor(private snackBar: MatSnackBar, 
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private httpHeader: HttpHeaders) { }
 
   errorHandler(e: any): Observable<any> {
     this.showMessage("Erro efetuar a operação.", true);
@@ -30,6 +26,7 @@ export class CursoService {
   }
 
   create(curso: Curso): Observable<Curso> {
+    this.httpHeader.append("Authorization", `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`);
     return this.http.post<Curso>(this.baseUrl, curso, { headers: this.httpHeader }).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))

@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
     this.authService.logar(this.login).subscribe(loginResponse => {
       this.loginResponse = loginResponse;
       
-      if (this.loginResponse.token != "") {
+      if (this.loginResponse == null) {
+        this.authService.showMessage("Ocorreu um erro ao efetuar login");
+      } else if (this.loginResponse.token != "") {
         const dados = tokenService.parseJwt(this.loginResponse.token);
         /*const usuario = {
           id: dados.id,
