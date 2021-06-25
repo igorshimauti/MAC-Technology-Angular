@@ -8,9 +8,8 @@
     font-size: 1.1rem;
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
+.card-main {
+    max-width: 60rem;
 }
 
 button {

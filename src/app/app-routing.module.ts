@@ -8,6 +8,7 @@ import { ProfessorComponent } from './components/views/professor/professor.compo
 import { MateriaComponent } from './components/views/materia/materia.component';
 import { AulaComponent } from './components/views/aula/aula.component';
 
+import { UsuarioCreateComponent } from './components/usuario-crud/usuario-create/usuario-create.component';
 import { CursoCreateComponent } from './components/curso-crud/curso-create/curso-create.component';
 import { AlunoCreateComponent } from './components/aluno-crud/aluno-create/aluno-create.component';
 import { ProfessorCreateComponent } from './components/professor-crud/professor-create/professor-create.component';
@@ -30,6 +31,10 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [{
   path: "login",
   component: LoginComponent
+},
+{
+  path: "usuario/novo",
+  component: UsuarioCreateComponent
 },
 {
   path: "curso",

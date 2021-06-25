@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   logar(): void {
     this.authService.logar(this.login).subscribe(loginResponse => {
       this.loginResponse = loginResponse;
-
+      console.log(this.loginResponse);
       if (this.loginResponse.token != "") {
         const dados = tokenService.parseJwt(this.loginResponse.token);
         /*const usuario = {
@@ -52,6 +52,6 @@ export class LoginComponent implements OnInit {
   }
 
   cadastrar(): void {
-
+    this.router.navigate(["/usuario/novo"]);
   }
 }
