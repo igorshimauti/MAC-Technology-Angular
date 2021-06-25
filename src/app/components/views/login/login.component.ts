@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   logar(): void {
     this.authService.logar(this.login).subscribe(loginResponse => {
       this.loginResponse = loginResponse;
-      console.log(this.loginResponse);
+      
       if (this.loginResponse.token != "") {
         const dados = tokenService.parseJwt(this.loginResponse.token);
         /*const usuario = {
@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
         this.authService.setToken(this.loginResponse.token);
         this.authService.setTipoToken(this.loginResponse.tipo);
         this.router.navigate(["/curso"]);
+      } else {
+        this.authService.showMessage("Usuário não encontrado ou senha incorreta.");
       }
     });
   }

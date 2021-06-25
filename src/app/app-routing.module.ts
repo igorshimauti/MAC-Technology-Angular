@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from "./components/views/login/login.component";
+import { UsuarioComponent } from "./components/views/usuario/usuario.component";
 import { HomeComponent } from './components/views/home/home.component';
 import { AlunoComponent } from './components/views/aluno/aluno.component';
 import { ProfessorComponent } from './components/views/professor/professor.component';
@@ -15,6 +16,7 @@ import { ProfessorCreateComponent } from './components/professor-crud/professor-
 import { MateriaCreateComponent } from './components/materia-crud/materia-create/materia-create.component';
 import { AulaCreateComponent } from './components/aula-crud/aula-create/aula-create.component';
 
+import { UsuarioUpdateComponent } from "./components/usuario-crud/usuario-update/usuario-update.component";
 import { CursoUpdateComponent } from './components/curso-crud/curso-update/curso-update.component';
 import { AlunoUpdateComponent } from './components/aluno-crud/aluno-update/aluno-update.component';
 import { ProfessorUpdateComponent } from './components/professor-crud/professor-update/professor-update.component';
@@ -33,8 +35,16 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
+  path: "usuario",
+  component: UsuarioComponent
+},
+{
   path: "usuario/novo",
   component: UsuarioCreateComponent
+},
+{
+  path: "usuario/atualizar/:id",
+  component: UsuarioUpdateComponent
 },
 {
   path: "curso",

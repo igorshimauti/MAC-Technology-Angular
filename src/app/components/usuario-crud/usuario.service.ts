@@ -18,12 +18,21 @@ export class UsuarioService {
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
   create(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.baseUrl, usuario, { headers: this.httpHeader });
+    return this.http.post<Usuario>(this.baseUrl, usuario);
+  }
+
+  read(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.baseUrl, { headers: this.httpHeader });
   }
 
   readById(id: string): Observable<Usuario> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Usuario>(url, { headers: this.httpHeader });
+  }
+
+  update(usuario: Usuario): Observable<Usuario> {
+    const url = `${this.baseUrl}/${usuario.id}`;
+    return this.http.put<Usuario>(url, usuario, { headers: this.httpHeader });
   }
 
   showMessage(msg: string): void {

@@ -1,6 +1,13 @@
 <mat-sidenav-container class="container">
     <mat-sidenav *ngIf="mostrarMenu" class="side-nav" mode="side" opened fixedInViewport fixedTopGap=64 fixedBottomGap=64>
         <mat-nav-list  class="nav-list">
+            <a mat-list-item routerLink="usuario">
+                <i class="material-icons">
+                    manage_accounts
+                </i>
+                Usuários
+            </a>
+
             <a mat-list-item routerLink="/curso">
                 <i class="material-icons">
                     home

@@ -58,6 +58,9 @@ import { AulaDeleteComponent } from './components/aula-crud/aula-delete/aula-del
 import { AuthService } from './components/views/login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { UsuarioCreateComponent } from './components/usuario-crud/usuario-create/usuario-create.component';
+import { UsuarioReadComponent } from './components/usuario-crud/usuario-read/usuario-read.component';
+import { UsuarioUpdateComponent } from './components/usuario-crud/usuario-update/usuario-update.component';
+import { UsuarioComponent } from './components/views/usuario/usuario.component';
 
 registerLocaleData(localePt);
 
@@ -93,7 +96,10 @@ registerLocaleData(localePt);
     AulaReadComponent,
     AulaUpdateComponent,
     AulaDeleteComponent,
-    UsuarioCreateComponent
+    UsuarioCreateComponent,
+    UsuarioReadComponent,
+    UsuarioUpdateComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
