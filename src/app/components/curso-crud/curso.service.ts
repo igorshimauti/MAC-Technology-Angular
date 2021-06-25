@@ -17,8 +17,7 @@ export class CursoService {
   baseUrl = "https://mac-courses.herokuapp.com/mac-courses/curso";
 
   constructor(private snackBar: MatSnackBar, 
-    private http: HttpClient,
-    private httpHeader: HttpHeaders) { }
+    private http: HttpClient) { }
 
   errorHandler(e: any): Observable<any> {
     this.showMessage("Erro efetuar a operação.", true);
@@ -26,35 +25,58 @@ export class CursoService {
   }
 
   create(curso: Curso): Observable<Curso> {
-    this.httpHeader.append("Authorization", `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`);
-    return this.http.post<Curso>(this.baseUrl, curso, { headers: this.httpHeader }).pipe(
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
+    return this.http.post<Curso>(this.baseUrl, curso, { headers: httpHeader }).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
   read(): Observable<Curso[]> {
-    return this.http.get<Curso[]>(this.baseUrl, { headers: this.httpHeader });
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+    
+    return this.http.get<Curso[]>(this.baseUrl, { headers: httpHeader });
   }
 
   readById(id: string): Observable<Curso> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
     const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Curso>(url, { headers: this.httpHeader });
+    return this.http.get<Curso>(url, { headers: httpHeader });
   }
 
   update(curso: Curso): Observable<Curso> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
     const url = `${this.baseUrl}/${curso.id}`;
-    return this.http.put<Curso>(url, curso, { headers: this.httpHeader });
+    return this.http.put<Curso>(url, curso, { headers: httpHeader });
   }
 
   delete(curso: Curso): Observable<Curso> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
     const url = `${this.baseUrl}/${curso.id}`;
-    return this.http.delete<Curso>(url, { headers: this.httpHeader });
+    return this.http.delete<Curso>(url, { headers: httpHeader });
   }
 
   findEnrolledStudents(): Observable<Aluno[]> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
     const url = `${this.baseUrl}/${this.cursoId}/alunos`;
-    return this.http.get<Aluno[]>(url, { headers: this.httpHeader });
+    return this.http.get<Aluno[]>(url, { headers: httpHeader });
   }
 
   showMessage(msg: string, isError: boolean = false): void {
