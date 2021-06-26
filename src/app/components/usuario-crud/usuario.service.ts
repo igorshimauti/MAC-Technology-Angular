@@ -31,13 +31,13 @@ export class UsuarioService {
     return this.http.get<Usuario>(url, { headers: httpHeader });
   }
 
-  update(usuario: Usuario): Observable<Usuario> {
+  authorize(id: number): Observable<Usuario> {
     const httpHeader = new HttpHeaders({
       "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
     });
 
-    const url = `${this.baseUrl}/${usuario.id}`;
-    return this.http.put<Usuario>(url, usuario, { headers: httpHeader });
+    const url = `${this.baseUrl}/${id.toString()}/autorizar`;
+    return this.http.post<Usuario>(url, {headers: httpHeader});
   }
 
   cpfValido(cpf: string): boolean {

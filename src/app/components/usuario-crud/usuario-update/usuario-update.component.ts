@@ -30,15 +30,14 @@ export class UsuarioUpdateComponent implements OnInit {
     });
   }
 
-  update(): void {
+  authorize(): void {
     if (!this.usuarioService.cpfValido(this.usuario.cpf)) {
       this.usuarioService.showMessage("CPF inválido");
     } else if (!this.usuarioService.emailValido(this.usuario.email)) {
       this.usuarioService.showMessage("e-Mail inválido");
     } else {
-      this.usuario.autorizado = (document.getElementById("autorizado") as HTMLInputElement).checked;
-      this.usuarioService.update(this.usuario).subscribe(() => {
-        this.usuarioService.showMessage("Usuário atualizado com sucesso");
+      this.usuarioService.authorize(this.usuario.id ? this.usuario.id : 0).subscribe(() => {
+        this.usuarioService.showMessage("Usuário autorizado com sucesso");
         this.router.navigate(["/usuario"]);
       });
     }

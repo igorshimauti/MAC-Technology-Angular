@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-title>Atualizar usuário</mat-card-title>
+    <mat-card-title>Autorização de usuário</mat-card-title>
     <form>
         <mat-form-field>
             <input matInput name="nome" placeholder="Nome" [(ngModel)]="usuario.nome" disabled>
@@ -10,11 +10,9 @@
         <mat-form-field>
             <input matInput name="email" placeholder="e-Mail" [(ngModel)]="usuario.email" disabled>
         </mat-form-field>
-        <label for="autorizado">Autorizado</label>
-        <input type="checkbox" id="autorizado">
     </form>
-    <button mat-raised-button (click)="update()" color="primary">
-        Atualizar
+    <button mat-raised-button (click)="authorize()" color="primary">
+        Autorizar
     </button>
     <button mat-raised-button (click)="cancel()">
         Cancelar
