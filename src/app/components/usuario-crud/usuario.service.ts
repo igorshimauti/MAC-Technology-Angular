@@ -38,7 +38,7 @@ export class UsuarioService {
     });
 
     const url = `${this.baseUrl}/${usuario.id}/autorizar`;
-    return this.http.post<Usuario>(url, {headers: httpHeader});
+    return this.http.post<Usuario>(url, {}, {headers: httpHeader});
   }
 
   cpfValido(cpf: string): boolean {
