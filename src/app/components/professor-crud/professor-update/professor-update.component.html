@@ -7,7 +7,7 @@
                 <input matInput name="nome" placeholder="Nome" [(ngModel)]="professor.nome">
             </mat-form-field>
             <mat-form-field>
-                <input matInput name="cpf" placeholder="CPF" [(ngModel)]="professor.cpf">
+                <input matInput name="cpf" placeholder="CPF" mask="000.000.000-00" [(ngModel)]="professor.cpf">
             </mat-form-field>
             <mat-form-field>
                 <input matInput name="dataNascimento" placeholder="Data de nascimento" [(ngModel)]="professor.dataNascimento">
@@ -23,7 +23,7 @@
         <mat-card class="card">
             <mat-card-title>Endereço residencial</mat-card-title>
             <mat-form-field>
-                <input matInput name="cep" placeholder="CEP" [(ngModel)]="professor.enderecoResidencial.cep">
+                <input matInput name="cep" placeholder="CEP" mask="00000000" (blur)="consultaCep()" [(ngModel)]="professor.enderecoResidencial.cep">
             </mat-form-field>
             <mat-form-field>
                 <input matInput name="uf" placeholder="UF" [(ngModel)]="professor.enderecoResidencial.uf">
@@ -45,7 +45,7 @@
             </mat-form-field>
         </mat-card>
     </form>
-    <button mat-raised-button (click)="update()">
+    <button mat-raised-button (click)="update()" color="primary">
         Atualizar
     </button>
     <button mat-raised-button (click)="cancel()">

@@ -25,10 +25,18 @@ export class UsuarioCreateComponent implements OnInit {
   }
 
   create(): void {
-    this.usuarioService.create(this.usuario).subscribe(() => {
-      this.usuarioService.showMessage("Usuário cadastrado com sucesso. Por favor, solicite a liberação do administrador do sistema para começar a utilizar.");
-      this.router.navigate(["/login"]);
-    });
+    if (!this.usuarioService.cpfValido(this.usuario.cpf)) {
+      this.usuarioService.showMessage("CPF inválido");
+    } else if (!this.usuarioService.emailValido(this.usuario.email)) {
+      this.usuarioService.showMessage("e-Mail inválido");
+    } else if (this.usuario.senha != (document.getElementById("repetirSenha") as HTMLInputElement).value) {
+      this.usuarioService.showMessage("As senhas digitadas não conferem");
+    } else {
+      this.usuarioService.create(this.usuario).subscribe(() => {
+        this.usuarioService.showMessage("Usuário cadastrado com sucesso. Por favor, solicite a liberação do administrador do sistema para começar a utilizar.");
+        this.router.navigate(["/login"]);
+      });
+    }
   }
 
   cancel(): void {

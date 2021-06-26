@@ -15,6 +15,7 @@ export class CursoService {
   cursoId: string = "";
 
   baseUrl = "https://mac-courses.herokuapp.com/mac-courses/curso";
+  //baseUrl = "http://localhost:8080/mac-courses/curso";
 
   httpHeader = new HttpHeaders({
     "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
@@ -36,7 +37,6 @@ export class CursoService {
   }
 
   read(): Observable<Curso[]> {
-    console.log(this.httpHeader)
     return this.http.get<Curso[]>(this.baseUrl, { headers: this.httpHeader });
   }
 

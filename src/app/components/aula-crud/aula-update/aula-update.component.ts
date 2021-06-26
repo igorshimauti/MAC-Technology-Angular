@@ -45,7 +45,6 @@ export class AulaUpdateComponent implements OnInit {
   }
 
   markPresentStudents(presents: Aluno[]) {
-    console.log(presents);
     for (let present of presents) {
       let alunoId = present.id ? present.id : 0;
       let checkbox = document.getElementById(alunoId.toString()) as HTMLInputElement;

@@ -5,13 +5,13 @@
             <input matInput name="nome" placeholder="Nome" [(ngModel)]="usuario.nome" disabled>
         </mat-form-field>
         <mat-form-field>
-            <input matInput name="cpf" placeholder="CPF" [(ngModel)]="usuario.cpf" disabled>
+            <input matInput name="cpf" placeholder="CPF" [(ngModel)]="usuario.cpf" mask="000.000.000-00" disabled>
         </mat-form-field>
         <mat-form-field>
             <input matInput name="email" placeholder="e-Mail" [(ngModel)]="usuario.email" disabled>
         </mat-form-field>
         <mat-form-field>
-            <input type="checkbox" matInput name="autorizado" [(ngModel)]="usuario.autorizado">
+            <input type="checkbox" name="autorizado" [(ngModel)]="usuario.autorizado">
         </mat-form-field>
     </form>
     <button mat-raised-button (click)="update()" color="primary">

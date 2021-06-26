@@ -62,6 +62,8 @@ import { UsuarioReadComponent } from './components/usuario-crud/usuario-read/usu
 import { UsuarioUpdateComponent } from './components/usuario-crud/usuario-update/usuario-update.component';
 import { UsuarioComponent } from './components/views/usuario/usuario.component';
 
+import { NgxMaskModule } from "ngx-mask";
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -118,7 +120,8 @@ registerLocaleData(localePt);
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxMaskModule.forRoot({dropSpecialCharacters: false})
   ],
   providers: [{
     provide: LOCALE_ID,

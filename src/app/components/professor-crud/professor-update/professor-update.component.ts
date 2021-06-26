@@ -37,11 +37,27 @@ export class ProfessorUpdateComponent implements OnInit {
     });
   }
 
+  consultaCep() {
+    this.professorService.consultaCep(this.professor.enderecoResidencial.cep).subscribe(endereco => {
+      this.professor.enderecoResidencial.uf = endereco.uf;
+      this.professor.enderecoResidencial.cidade = endereco.localidade;
+      this.professor.enderecoResidencial.bairro = endereco.bairro;
+      this.professor.enderecoResidencial.logradouro = endereco.logradouro;
+      this.professor.enderecoResidencial.complemento = endereco.complemento;
+    });    
+  }
+
   update(): void {
-    this.professorService.update(this.professor).subscribe(() => {
-      this.professorService.showMessage("Professor atualizado com sucesso");
-      this.router.navigate(["/professor"]);
-    });
+    if (!this.professorService.cpfValido(this.professor.cpf)) {
+      this.professorService.showMessage("CPF inválido");
+    } else if (!this.professorService.emailValido(this.professor.email)) {
+      this.professorService.showMessage("e-Mail inválido");
+    } else {
+      this.professorService.update(this.professor).subscribe(() => {
+        this.professorService.showMessage("Professor atualizado com sucesso");
+        this.router.navigate(["/professor"]);
+      });
+    }
   }
 
   cancel(): void {

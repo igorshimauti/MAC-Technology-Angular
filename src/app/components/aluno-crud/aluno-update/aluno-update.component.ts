@@ -56,6 +56,16 @@ export class AlunoUpdateComponent implements OnInit {
     });
   }
 
+  consultaCep() {
+    this.alunoService.consultaCep(this.aluno.enderecoResidencial.cep).subscribe(endereco => {
+      this.aluno.enderecoResidencial.uf = endereco.uf;
+      this.aluno.enderecoResidencial.cidade = endereco.localidade;
+      this.aluno.enderecoResidencial.bairro = endereco.bairro;
+      this.aluno.enderecoResidencial.logradouro = endereco.logradouro;
+      this.aluno.enderecoResidencial.complemento = endereco.complemento;
+    });    
+  }
+
   markEnrolledCourses(matriculados: Curso[]){
     for (let matriculado of matriculados) {
       let idCurso = matriculado.id ? matriculado.id : 0;
@@ -65,19 +75,27 @@ export class AlunoUpdateComponent implements OnInit {
   }
 
   update(): void {
-    for (let curso of this.cursos) {
-      let idCurso = curso.id ? curso.id : 0;
-      let checkbox = document.getElementById(idCurso.toString()) as HTMLInputElement;
-      if (checkbox.checked) {
-        this.matriculas.push(idCurso);
+    if (this.aluno.email !== "" && this.aluno.email !== undefined) {
+      if (!this.alunoService.emailValido(this.aluno.email)) {
+        this.alunoService.showMessage("e-Mail inválido");
       }
+    } else if (!this.alunoService.cpfValido(this.aluno.cpf)) {
+      this.alunoService.showMessage("CPF inválido");
+    } else {
+      for (let curso of this.cursos) {
+        let idCurso = curso.id ? curso.id : 0;
+        let checkbox = document.getElementById(idCurso.toString()) as HTMLInputElement;
+        if (checkbox.checked) {
+          this.matriculas.push(idCurso);
+        }
+      }
+  
+      this.aluno.cursos = this.matriculas;
+      this.alunoService.update(this.aluno).subscribe(() => {
+        this.alunoService.showMessage("Aluno atualizado com sucesso");
+        this.router.navigate(['/aluno']);
+      });
     }
-
-    this.aluno.cursos = this.matriculas;
-    this.alunoService.update(this.aluno).subscribe(() => {
-      this.alunoService.showMessage("Aluno atualizado com sucesso");
-      this.router.navigate(['/aluno']);
-    });    
   }
 
   cancel(): void {

@@ -31,10 +31,16 @@ export class UsuarioUpdateComponent implements OnInit {
   }
 
   update(): void {
-    this.usuarioService.update(this.usuario).subscribe(() => {
-      this.usuarioService.showMessage("Usuário atualizado com sucesso");
-      this.router.navigate(["/usuario"]);
-    });
+    if (!this.usuarioService.cpfValido(this.usuario.cpf)) {
+      this.usuarioService.showMessage("CPF inválido");
+    } else if (!this.usuarioService.emailValido(this.usuario.email)) {
+      this.usuarioService.showMessage("e-Mail inválido");
+    } else {
+      this.usuarioService.update(this.usuario).subscribe(() => {
+        this.usuarioService.showMessage("Usuário atualizado com sucesso");
+        this.router.navigate(["/usuario"]);
+      });
+    }
   }
 
   cancel(): void {
