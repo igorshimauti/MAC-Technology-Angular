@@ -10,9 +10,8 @@
         <mat-form-field>
             <input matInput name="email" placeholder="e-Mail" [(ngModel)]="usuario.email" disabled>
         </mat-form-field>
-        <mat-form-field>
-            <input type="checkbox" id="autorizado">
-        </mat-form-field>
+        <label for="autorizado">Autorizado</label>
+        <input type="checkbox" id="autorizado">
     </form>
     <button mat-raised-button (click)="update()" color="primary">
         Atualizar

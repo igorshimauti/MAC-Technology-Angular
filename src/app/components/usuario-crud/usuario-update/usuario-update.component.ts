@@ -36,6 +36,7 @@ export class UsuarioUpdateComponent implements OnInit {
     } else if (!this.usuarioService.emailValido(this.usuario.email)) {
       this.usuarioService.showMessage("e-Mail inválido");
     } else {
+      this.usuario.autorizado = (document.getElementById("autorizado") as HTMLInputElement).checked;
       this.usuarioService.update(this.usuario).subscribe(() => {
         this.usuarioService.showMessage("Usuário atualizado com sucesso");
         this.router.navigate(["/usuario"]);
