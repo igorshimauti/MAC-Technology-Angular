@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from "./components/views/login/login.component";
+import { LogoutComponent } from "./components/views/logout/logout.component";
 import { UsuarioComponent } from "./components/views/usuario/usuario.component";
 import { HomeComponent } from './components/views/home/home.component';
 import { AlunoComponent } from './components/views/aluno/aluno.component';
@@ -33,6 +34,10 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [{
   path: "login",
   component: LoginComponent
+},
+{
+  path: "logout",
+  component: LogoutComponent
 },
 {
   path: "usuario",

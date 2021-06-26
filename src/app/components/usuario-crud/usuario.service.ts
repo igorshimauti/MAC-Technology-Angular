@@ -23,6 +23,24 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(this.baseUrl);
   }
 
+  readBlocked(): Observable<Usuario[]> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
+    const url = `${this.baseUrl}/bloqueados`;
+    return this.http.get<Usuario[]>(url, { headers: httpHeader });
+  }
+
+  readAuthorized(): Observable<Usuario[]> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
+    const url = `${this.baseUrl}/autorizados`;
+    return this.http.get<Usuario[]>(url, { headers: httpHeader });
+  }
+
   readById(id: string): Observable<Usuario> {
     const httpHeader = new HttpHeaders({
       "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from '../../views/login/auth.service';
 
 @Component({
@@ -11,16 +10,11 @@ export class HeaderComponent implements OnInit {
 
   mostrarLogout: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.mostrarMenuEmitter.subscribe(mostrarLogout => {
       this.mostrarLogout = mostrarLogout;
     });
-  }
-
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(["/login"]);
   }
 }
