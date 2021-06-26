@@ -11,7 +11,7 @@
             <input matInput name="email" placeholder="e-Mail" [(ngModel)]="usuario.email" disabled>
         </mat-form-field>
         <mat-form-field>
-            <input type="checkbox" name="autorizado" [(ngModel)]="usuario.autorizado">
+            <input type="checkbox" id="autorizado">
         </mat-form-field>
     </form>
     <button mat-raised-button (click)="update()" color="primary">
