@@ -59,10 +59,10 @@ import { AuthService } from './components/views/login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { UsuarioCreateComponent } from './components/usuario-crud/usuario-create/usuario-create.component';
 import { UsuarioReadComponent } from './components/usuario-crud/usuario-read/usuario-read.component';
-import { UsuarioUpdateComponent } from './components/usuario-crud/usuario-update/usuario-update.component';
 import { UsuarioComponent } from './components/views/usuario/usuario.component';
 
 import { NgxMaskModule } from "ngx-mask";
+import { UsuarioAuthorizeComponent } from './components/usuario-crud/usuario-authorize/usuario-authorize.component';
 
 registerLocaleData(localePt);
 
@@ -100,8 +100,8 @@ registerLocaleData(localePt);
     AulaDeleteComponent,
     UsuarioCreateComponent,
     UsuarioReadComponent,
-    UsuarioUpdateComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    UsuarioAuthorizeComponent
   ],
   imports: [
     BrowserModule,

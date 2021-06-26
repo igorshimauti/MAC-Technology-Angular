@@ -16,7 +16,7 @@ import { ProfessorCreateComponent } from './components/professor-crud/professor-
 import { MateriaCreateComponent } from './components/materia-crud/materia-create/materia-create.component';
 import { AulaCreateComponent } from './components/aula-crud/aula-create/aula-create.component';
 
-import { UsuarioUpdateComponent } from "./components/usuario-crud/usuario-update/usuario-update.component";
+import { UsuarioAuthorizeComponent } from "./components/usuario-crud/usuario-authorize/usuario-authorize.component";
 import { CursoUpdateComponent } from './components/curso-crud/curso-update/curso-update.component';
 import { AlunoUpdateComponent } from './components/aluno-crud/aluno-update/aluno-update.component';
 import { ProfessorUpdateComponent } from './components/professor-crud/professor-update/professor-update.component';
@@ -36,6 +36,7 @@ const routes: Routes = [{
 },
 {
   path: "usuario",
+  canActivate: [AuthGuard],
   component: UsuarioComponent
 },
 {
@@ -43,8 +44,9 @@ const routes: Routes = [{
   component: UsuarioCreateComponent
 },
 {
-  path: "usuario/atualizar/:id",
-  component: UsuarioUpdateComponent
+  path: "usuario/autorizar/:id",
+  canActivate: [AuthGuard],
+  component: UsuarioAuthorizeComponent
 },
 {
   path: "curso",

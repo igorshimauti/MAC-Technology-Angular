@@ -12,7 +12,8 @@ export class UsuarioService {
   baseUrl = "https://mac-courses.herokuapp.com/mac-courses/usuario";
   //baseUrl = "http://localhost:8080/mac-courses/usuario";
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, 
+    private http: HttpClient) { }
 
   create(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.baseUrl, usuario);
@@ -31,12 +32,12 @@ export class UsuarioService {
     return this.http.get<Usuario>(url, { headers: httpHeader });
   }
 
-  authorize(id: number): Observable<Usuario> {
+  authorize(usuario: Usuario): Observable<Usuario> {
     const httpHeader = new HttpHeaders({
       "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
     });
 
-    const url = `${this.baseUrl}/${id.toString()}/autorizar`;
+    const url = `${this.baseUrl}/${usuario.id}/autorizar`;
     return this.http.post<Usuario>(url, {headers: httpHeader});
   }
 

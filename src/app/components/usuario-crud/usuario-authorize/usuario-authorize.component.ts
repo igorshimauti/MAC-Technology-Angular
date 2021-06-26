@@ -4,19 +4,18 @@ import { Usuario } from '../usuario.model';
 import { UsuarioService } from '../usuario.service';
 
 @Component({
-  selector: 'app-usuario-update',
-  templateUrl: './usuario-update.component.html',
-  styleUrls: ['./usuario-update.component.css']
+  selector: 'app-usuario-authorize',
+  templateUrl: './usuario-authorize.component.html',
+  styleUrls: ['./usuario-authorize.component.css']
 })
-export class UsuarioUpdateComponent implements OnInit {
+export class UsuarioAuthorizeComponent implements OnInit {
 
   usuario: Usuario = {
     id: undefined,
     nome: "",
     cpf: "",
     email: "",
-    senha: "",
-    autorizado: undefined
+    senha: ""
   };
 
   constructor(private usuarioService: UsuarioService,
@@ -31,19 +30,14 @@ export class UsuarioUpdateComponent implements OnInit {
   }
 
   authorize(): void {
-    if (!this.usuarioService.cpfValido(this.usuario.cpf)) {
-      this.usuarioService.showMessage("CPF inválido");
-    } else if (!this.usuarioService.emailValido(this.usuario.email)) {
-      this.usuarioService.showMessage("e-Mail inválido");
-    } else {
-      this.usuarioService.authorize(this.usuario.id ? this.usuario.id : 0).subscribe(() => {
-        this.usuarioService.showMessage("Usuário autorizado com sucesso");
-        this.router.navigate(["/usuario"]);
-      });
-    }
+    this.usuarioService.authorize(this.usuario).subscribe(() => {
+      this.usuarioService.showMessage("Usuário autorizado com sucesso.");
+      this.router.navigate(["/usuario"]);
+    });
   }
 
   cancel(): void {
     this.router.navigate(["/usuario"]);
   }
+
 }
