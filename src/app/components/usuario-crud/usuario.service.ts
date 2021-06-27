@@ -59,6 +59,15 @@ export class UsuarioService {
     return this.http.post<Usuario>(url, {}, {headers: httpHeader});
   }
 
+  setadm(usuario: Usuario): Observable<Usuario> {
+    const httpHeader = new HttpHeaders({
+      "Authorization" : `${localStorage.getItem("tipoToken")} ${localStorage.getItem("token")}`
+    });
+
+    const url = `${this.baseUrl}/${usuario.id}/setAdmin`;
+    return this.http.post<Usuario>(url, {}, {headers: httpHeader});
+  }
+
   cpfValido(cpf: string): boolean {
     if (cpf == null || cpf == "") {
       return false;

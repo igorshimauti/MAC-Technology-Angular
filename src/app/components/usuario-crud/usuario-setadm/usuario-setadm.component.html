@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>Setar usuário como administrador</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput name="nome" placeholder="Nome" [(ngModel)]="usuario.nome">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="cpf" placeholder="CPF" [(ngModel)]="usuario.cpf" mask="000.000.000-00">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="email" placeholder="e-Mail" [(ngModel)]="usuario.email">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="setadm()" color="primary">
+        Tornar adm
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

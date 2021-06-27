@@ -3,7 +3,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Login, LoginResponse } from './login.model';
 import { Observable } from 'rxjs';
-import { Usuario } from '../../usuario-crud/usuario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +40,7 @@ export class AuthService {
     return this.usuarioAutenticado;
   }
 
-	setUser(usuario: Usuario | null): void {
+	setUser(usuario: any | null): void {
 		this.usuario = usuario;
 		localStorage.setItem("usuario", JSON.stringify(usuario));
 	}

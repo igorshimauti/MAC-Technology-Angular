@@ -64,6 +64,7 @@ import { UsuarioComponent } from './components/views/usuario/usuario.component';
 import { NgxMaskModule } from "ngx-mask";
 import { UsuarioAuthorizeComponent } from './components/usuario-crud/usuario-authorize/usuario-authorize.component';
 import { LogoutComponent } from './components/views/logout/logout.component';
+import { UsuarioSetadmComponent } from './components/usuario-crud/usuario-setadm/usuario-setadm.component';
 
 registerLocaleData(localePt);
 
@@ -103,7 +104,8 @@ registerLocaleData(localePt);
     UsuarioReadComponent,
     UsuarioComponent,
     UsuarioAuthorizeComponent,
-    LogoutComponent
+    LogoutComponent,
+    UsuarioSetadmComponent
   ],
   imports: [
     BrowserModule,

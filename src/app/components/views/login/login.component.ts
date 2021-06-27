@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     tipo: ""
   };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -35,19 +36,17 @@ export class LoginComponent implements OnInit {
         this.authService.showMessage("Ocorreu um erro ao efetuar login");
       } else if (this.loginResponse.token != "") {
         const dados = tokenService.parseJwt(this.loginResponse.token);
-        /*const usuario = {
-          id: dados.id,
-          nome: dados.nome,
-          cpf: dados.cpf,
-          email: dados.email,
-          senha: dados.senha
-        };*/
+        const usuario = {
+          "id": dados.jti,
+          "nome": dados.sub,
+          "admin": dados.iss
+        }
 
         this.authService.mostrarMenuEmitter.emit(true);
         this.authService.usuarioAutenticado = true;
-        //this.authService.setUser(usuario);
         this.authService.setToken(this.loginResponse.token);
         this.authService.setTipoToken(this.loginResponse.tipo);
+        this.authService.setUser(usuario);
         this.router.navigate(["/curso"]);
       } else {
         this.authService.showMessage("Usuário não encontrado ou senha incorreta.");
