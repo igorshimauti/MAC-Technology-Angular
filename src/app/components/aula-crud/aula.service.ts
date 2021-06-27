@@ -10,8 +10,8 @@ import { Aula } from './aula.model';
 })
 export class AulaService {
 
-  //baseUrl = "https://mac-courses.herokuapp.com/mac-courses/curso";
-  baseUrl = "http://localhost:8080/mac-courses/curso";
+  baseUrl = "https://mac-courses.herokuapp.com/mac-courses/curso";
+  //baseUrl = "http://localhost:8080/mac-courses/curso";
   cursoId = "";
   materiaId = "";
 
