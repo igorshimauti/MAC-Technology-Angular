@@ -14,7 +14,7 @@ export class ProfessorCreateComponent implements OnInit {
     id: undefined,
     nome: "",
     cpf: "",
-    dataNascimento: new Date,
+    dataNascimento: undefined,
     email: "",
     celular: "",
     enderecoResidencial: {
@@ -46,14 +46,18 @@ export class ProfessorCreateComponent implements OnInit {
   create(): void {
     if (!this.professorService.cpfValido(this.professor.cpf)) {
       this.professorService.showMessage("CPF inválido");
-    } else if (!this.professorService.emailValido(this.professor.email)) {
-      this.professorService.showMessage("e-Mail inválido");
-    } else {
-      this.professorService.create(this.professor).subscribe(() => {
-        this.professorService.showMessage("Professor cadastrado com sucesso");
-        this.router.navigate(["/professor"]);
-      });
+      return;
     }
+    
+    if (!this.professorService.emailValido(this.professor.email)) {
+      this.professorService.showMessage("e-Mail inválido");
+      return;
+    }
+    
+    this.professorService.create(this.professor).subscribe(() => {
+      this.professorService.showMessage("Professor cadastrado com sucesso");
+      this.router.navigate(["/professor"]);
+    });
   }
 
   cancel(): void {

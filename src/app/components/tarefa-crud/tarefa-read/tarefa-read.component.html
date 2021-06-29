@@ -1,0 +1,55 @@
+<mat-form-field appearance="fill" class="select">
+    <mat-label>Selecione o curso</mat-label>
+    <mat-select id="cursoId" [(ngModel)]="cursoId" (selectionChange)="getMaterias()">
+      <mat-option *ngFor="let curso of cursos" [value]="curso.id">{{curso.nome}}</mat-option>
+    </mat-select>
+</mat-form-field>
+  
+<mat-form-field appearance="fill" class="select">
+    <mat-label>Selecione a materia</mat-label>
+    <mat-select [(ngModel)]="materiaId" (selectionChange)="getTarefas()">
+      <mat-option *ngFor="let materia of materias" [value]="materia.id">{{materia.nome}}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<div>
+    <button mat-raised-button (click)="navigateToNovaTarefa()">
+        Nova tarefa
+    </button>
+    <table mat-table [dataSource]="tarefas">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="descricao">
+            <th mat-header-cell *matHeaderCellDef>Descrição</th>
+            <td mat-cell *matCellDef="let row">{{row.descricao}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef>Data</th>
+            <td mat-cell *matCellDef="let row">{{row.data}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="dataEntrega">
+            <th mat-header-cell *matHeaderCellDef>Data de entrega</th>
+            <td mat-cell *matCellDef="let row">{{row.dataEntrega}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let row">
+                <a routerLink="/tarefa/atualizar/{{row.id}}" class="edit">
+                    <i class="material-icons">edit</i>
+                </a>
+                <a routerLink="/tarefa/excluir/{{row.id}}" class="delete">
+                    <i class="material-icons">delete</i>
+                </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

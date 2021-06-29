@@ -42,11 +42,12 @@ export class LoginComponent implements OnInit {
           "admin": dados.iss
         }
 
-        this.authService.mostrarMenuEmitter.emit(true);
         this.authService.usuarioAutenticado = true;
         this.authService.setToken(this.loginResponse.token);
         this.authService.setTipoToken(this.loginResponse.tipo);
         this.authService.setUser(usuario);
+        this.authService.mostrarMenuUsuarioEmitter.emit(this.authService.usuario.admin == "true");
+        this.authService.mostrarMenuEmitter.emit(this.authService.usuario.id > 0);        
         this.router.navigate(["/curso"]);
       } else {
         this.authService.showMessage("Usuário não encontrado ou senha incorreta.");

@@ -10,13 +10,13 @@
                 <input matInput name="cpf" placeholder="CPF" mask="000.000.000-00" [(ngModel)]="professor.cpf">
             </mat-form-field>
             <mat-form-field>
-                <input matInput name="dataNascimento" placeholder="Data de nascimento" [(ngModel)]="professor.dataNascimento">
+                <input matInput type="date" name="dataNascimento" placeholder="Data de nascimento" [(ngModel)]="professor.dataNascimento">
             </mat-form-field>
             <mat-form-field>
                 <input matInput name="email" placeholder="e-Mail" [(ngModel)]="professor.email">
             </mat-form-field>
             <mat-form-field>
-                <input matInput name="celular" placeholder="Celular" [(ngModel)]="professor.celular">
+                <input matInput name="celular" placeholder="Celular" mask="0000000-0000" [(ngModel)]="professor.celular">
             </mat-form-field>
         </mat-card>
 

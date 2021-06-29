@@ -1,32 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Aluno } from '../../aluno-crud/aluno.model';
 import { Curso } from '../../curso-crud/curso.model';
 import { CursoService } from '../../curso-crud/curso.service';
 import { Materia } from '../../materia-crud/materia.model';
 import { MateriaService } from '../../materia-crud/materia.service';
-import { Aula } from '../aula.model';
-import { AulaService } from '../aula.service';
+import { Tarefa } from '../tarefa.model';
+import { TarefaService } from '../tarefa.service';
 
 @Component({
-  selector: 'app-aula-read',
-  templateUrl: './aula-read.component.html',
-  styleUrls: ['./aula-read.component.css']
+  selector: 'app-tarefa-read',
+  templateUrl: './tarefa-read.component.html',
+  styleUrls: ['./tarefa-read.component.css']
 })
-export class AulaReadComponent implements OnInit {
+export class TarefaReadComponent implements OnInit {
 
   cursos: Curso[] = [];
   materias: Materia[] = [];
-  alunos: Aluno[] = [];
-  aulas: Aula[] = [];
-  displayedColumns = ["id", "tema", "actions"]
+  tarefas: Tarefa[] = [];
+  displayedColumns = ["id", "descricao", "data", "dataEntrega", "actions"]
 
   cursoId: string = "";
   materiaId: string = "";
 
   constructor(private cursoService: CursoService,
     private materiaService: MateriaService,
-    private aulaService: AulaService,
+    private tarefaService: TarefaService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -35,30 +33,30 @@ export class AulaReadComponent implements OnInit {
     });
   }
 
-  getMateriasAndAlunos(): void {
+  getMaterias(): void {
     this.materiaService.cursoId = this.cursoId;
     this.materiaService.read().subscribe(materias => {
       this.materias = materias;
     });
 
-    this.cursoService.cursoId = this.cursoId;
+    /*this.cursoService.cursoId = this.cursoId;
     this.cursoService.findEnrolledStudents().subscribe(alunos => {
       this.alunos = alunos;
+    });*/
+  }
+
+  getTarefas(): void {
+    this.tarefaService.cursoId = this.cursoId;
+    this.tarefaService.materiaId = this.materiaId;
+    this.tarefaService.read().subscribe(tarefas => {
+      this.tarefas = tarefas;
     });
   }
 
-  getAulas(): void {
-    this.aulaService.cursoId = this.cursoId;
-    this.aulaService.materiaId = this.materiaId;
-    this.aulaService.read().subscribe(aulas => {
-      this.aulas = aulas;
-    });
-  }
-
-  navigateToNovaAula(): void {
+  navigateToNovaTarefa(): void {
     if (this.cursoId == "" || this.materiaId == "")
-      this.aulaService.showMessage("Selecione o curso e a matéria que deseja cadastrar uma nova aula");
+      this.tarefaService.showMessage("Selecione o curso e a matéria que deseja cadastrar uma nova aula");
     else  
-      this.router.navigate(["/aula/nova"]);
+      this.router.navigate(["/tarefa/nova"]);
   }
 }

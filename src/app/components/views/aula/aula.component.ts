@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aula',
@@ -8,12 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AulaComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  navigateToNovaAula(): void {
-    this.router.navigate(["/aula/nova"]);
   }
 }

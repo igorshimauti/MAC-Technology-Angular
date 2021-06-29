@@ -9,6 +9,7 @@ import { AlunoComponent } from './components/views/aluno/aluno.component';
 import { ProfessorComponent } from './components/views/professor/professor.component';
 import { MateriaComponent } from './components/views/materia/materia.component';
 import { AulaComponent } from './components/views/aula/aula.component';
+import { TarefaComponent } from "./components/views/tarefa/tarefa.component";
 
 import { UsuarioCreateComponent } from './components/usuario-crud/usuario-create/usuario-create.component';
 import { CursoCreateComponent } from './components/curso-crud/curso-create/curso-create.component';
@@ -16,6 +17,7 @@ import { AlunoCreateComponent } from './components/aluno-crud/aluno-create/aluno
 import { ProfessorCreateComponent } from './components/professor-crud/professor-create/professor-create.component';
 import { MateriaCreateComponent } from './components/materia-crud/materia-create/materia-create.component';
 import { AulaCreateComponent } from './components/aula-crud/aula-create/aula-create.component';
+import { TarefaCreateComponent } from "./components/tarefa-crud/tarefa-create/tarefa-create.component";
 
 import { UsuarioAuthorizeComponent } from "./components/usuario-crud/usuario-authorize/usuario-authorize.component";
 import { CursoUpdateComponent } from './components/curso-crud/curso-update/curso-update.component';
@@ -23,12 +25,15 @@ import { AlunoUpdateComponent } from './components/aluno-crud/aluno-update/aluno
 import { ProfessorUpdateComponent } from './components/professor-crud/professor-update/professor-update.component';
 import { MateriaUpdateComponent } from './components/materia-crud/materia-update/materia-update.component';
 import { AulaUpdateComponent } from './components/aula-crud/aula-update/aula-update.component';
+import { TarefaUpdateComponent } from "./components/tarefa-crud/tarefa-update/tarefa-update.component";
 
 import { CursoDeleteComponent } from './components/curso-crud/curso-delete/curso-delete.component';
 import { AlunoDeleteComponent } from './components/aluno-crud/aluno-delete/aluno-delete.component';
 import { ProfessorDeleteComponent } from './components/professor-crud/professor-delete/professor-delete.component';
 import { MateriaDeleteComponent } from './components/materia-crud/materia-delete/materia-delete.component';
 import { AulaDeleteComponent } from './components/aula-crud/aula-delete/aula-delete.component';
+import { TarefaDeleteComponent } from "./components/tarefa-crud/tarefa-delete/tarefa-delete.component";
+
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [{
@@ -152,6 +157,26 @@ const routes: Routes = [{
   path: "aula/excluir/:id",
   canActivate: [AuthGuard],
   component: AulaDeleteComponent
+},
+{
+  path: "tarefa",
+  canActivate: [AuthGuard],
+  component: TarefaComponent
+},
+{
+  path: "tarefa/nova",
+  canActivate: [AuthGuard],
+  component: TarefaCreateComponent
+},
+{
+  path: "tarefa/atualizar/:id",
+  canActivate: [AuthGuard],
+  component: TarefaUpdateComponent
+},
+{
+  path: "tarefa/excluir/:id",
+  canActivate: [AuthGuard],
+  component: TarefaDeleteComponent
 },
 {
   path: "",

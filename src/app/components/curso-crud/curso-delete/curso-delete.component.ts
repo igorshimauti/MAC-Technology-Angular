@@ -27,11 +27,11 @@ export class CursoDeleteComponent implements OnInit {
   delete(): void {
     this.cursoService.delete(this.curso).subscribe(() => {
       this.cursoService.showMessage("Curso excluido com sucesso.");
-      this.router.navigate(['/home']);
+      this.router.navigate(['/curso']);
     });
   }
 
   cancel(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/curso']);
   }
 }

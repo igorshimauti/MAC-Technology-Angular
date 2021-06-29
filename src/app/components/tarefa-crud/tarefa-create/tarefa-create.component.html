@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>Nova tarefa</mat-card-title>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione o tipo</mat-label>
+            <mat-select [(ngModel)]="tarefa.tipoTarefaId" [ngModelOptions]="{standalone: true}">
+                <mat-option *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.descricao}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="descricao" placeholder="Descrição" [(ngModel)]="tarefa.descricao">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="date" name="data" placeholder="Data" [(ngModel)]="tarefa.data">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="date" name="data_entrega" placeholder="Data de entrega" [(ngModel)]="tarefa.dataEntrega">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="create()" color="primary">
+        Salvar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

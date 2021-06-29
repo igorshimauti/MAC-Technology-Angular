@@ -65,6 +65,11 @@ import { NgxMaskModule } from "ngx-mask";
 import { UsuarioAuthorizeComponent } from './components/usuario-crud/usuario-authorize/usuario-authorize.component';
 import { LogoutComponent } from './components/views/logout/logout.component';
 import { UsuarioSetadmComponent } from './components/usuario-crud/usuario-setadm/usuario-setadm.component';
+import { TarefaComponent } from './components/views/tarefa/tarefa.component';
+import { TarefaCreateComponent } from './components/tarefa-crud/tarefa-create/tarefa-create.component';
+import { TarefaReadComponent } from './components/tarefa-crud/tarefa-read/tarefa-read.component';
+import { TarefaUpdateComponent } from './components/tarefa-crud/tarefa-update/tarefa-update.component';
+import { TarefaDeleteComponent } from './components/tarefa-crud/tarefa-delete/tarefa-delete.component';
 
 registerLocaleData(localePt);
 
@@ -105,7 +110,12 @@ registerLocaleData(localePt);
     UsuarioComponent,
     UsuarioAuthorizeComponent,
     LogoutComponent,
-    UsuarioSetadmComponent
+    UsuarioSetadmComponent,
+    TarefaComponent,
+    TarefaCreateComponent,
+    TarefaReadComponent,
+    TarefaUpdateComponent,
+    TarefaDeleteComponent
   ],
   imports: [
     BrowserModule,

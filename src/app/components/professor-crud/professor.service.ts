@@ -46,7 +46,7 @@ export class ProfessorService {
       return false;
     }
 
-    cpf = cpf.replace(".","").replace("-","");
+    cpf = cpf.replace(".","").replace(".","").replace("-","");
 
     if (cpf.length != 11) {
       return false;

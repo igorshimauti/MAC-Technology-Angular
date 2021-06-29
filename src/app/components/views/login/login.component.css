@@ -8,10 +8,30 @@
     font-size: 1.1rem;
 }
 
-.card-main {
-    max-width: 60rem;
+button {
+    margin-right: 0.3125rem;
 }
 
-button {
-    margin-right: 5px;
+@media screen and (max-width: 768px) {
+    .login .title {
+        font-size: 2rem;
+        font-weight: 200;
+        line-height: 1.1;
+    }
+
+    .login .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .login .title {
+        font-size: 1.5rem;
+        font-weight: 150;
+        line-height: 1;
+    }
+
+    .login .subtitle {
+        font-size: 0.9rem;
+    }
 }

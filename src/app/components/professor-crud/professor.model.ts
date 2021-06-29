@@ -2,7 +2,7 @@ export interface Professor {
     id?: number,
     nome: string,
     cpf: string,
-    dataNascimento: Date,
+    dataNascimento?: Date,
     email: string,
     celular: string,
     enderecoResidencial: {

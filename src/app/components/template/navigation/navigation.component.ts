@@ -9,12 +9,17 @@ import { AuthService } from '../../views/login/auth.service';
 export class NavigationComponent implements OnInit {
 
   mostrarMenu: boolean = false;
+  mostrarMenuUsuario: boolean = false;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.mostrarMenuEmitter.subscribe(mostrarMenu => {
       this.mostrarMenu = mostrarMenu;
+    });
+
+    this.authService.mostrarMenuUsuarioEmitter.subscribe(mostrarMenuUsuario => {
+      this.mostrarMenuUsuario = mostrarMenuUsuario;
     });
   }
 }

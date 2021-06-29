@@ -61,24 +61,28 @@ export class AlunoCreateComponent implements OnInit {
     if (this.aluno.email !== "" && this.aluno.email !== undefined) {
       if (!this.alunoService.emailValido(this.aluno.email)) {
         this.alunoService.showMessage("e-Mail inválido");
+        return;
       }
-    } else if (!this.alunoService.cpfValido(this.aluno.cpf)) {
+    } 
+    
+    if (!this.alunoService.cpfValido(this.aluno.cpf)) {
       this.alunoService.showMessage("CPF inválido");
-    } else {
-      for (let curso of this.cursos) {
-        let idCurso = curso.id ? curso.id : 0;
-        let checkbox = document.getElementById(idCurso.toString()) as HTMLInputElement;
-        if (checkbox.checked) {
-          this.matriculas.push(idCurso);
-        }
-      }
-  
-      this.aluno.cursos = this.matriculas;
-      this.alunoService.create(this.aluno).subscribe(() => {
-        this.alunoService.showMessage('Aluno cadastrado com sucesso.');
-        this.router.navigate(['/aluno']);
-      });
+      return;
     }
+
+    for (let curso of this.cursos) {
+      let idCurso = curso.id ? curso.id : 0;
+      let checkbox = document.getElementById(idCurso.toString()) as HTMLInputElement;
+      if (checkbox.checked) {
+        this.matriculas.push(idCurso);
+      }
+    }
+
+    this.aluno.cursos = this.matriculas;
+    this.alunoService.create(this.aluno).subscribe(() => {
+      this.alunoService.showMessage('Aluno cadastrado com sucesso.');
+      this.router.navigate(['/aluno']);
+    });
   }
 
   cancel(): void {

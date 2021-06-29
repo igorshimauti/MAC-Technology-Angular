@@ -16,7 +16,7 @@ export class AlunoUpdateComponent implements OnInit {
     id: undefined,
     nome: "",
     cpf: "",
-    dataNascimento: new Date,
+    dataNascimento: undefined,
     email: "",
     celular: "",
     cursos: [],
@@ -78,24 +78,28 @@ export class AlunoUpdateComponent implements OnInit {
     if (this.aluno.email !== "" && this.aluno.email !== undefined) {
       if (!this.alunoService.emailValido(this.aluno.email)) {
         this.alunoService.showMessage("e-Mail inválido");
+        return;
       }
-    } else if (!this.alunoService.cpfValido(this.aluno.cpf)) {
-      this.alunoService.showMessage("CPF inválido");
-    } else {
-      for (let curso of this.cursos) {
-        let idCurso = curso.id ? curso.id : 0;
-        let checkbox = document.getElementById(idCurso.toString()) as HTMLInputElement;
-        if (checkbox.checked) {
-          this.matriculas.push(idCurso);
-        }
-      }
-  
-      this.aluno.cursos = this.matriculas;
-      this.alunoService.update(this.aluno).subscribe(() => {
-        this.alunoService.showMessage("Aluno atualizado com sucesso");
-        this.router.navigate(['/aluno']);
-      });
     }
+
+    if (!this.alunoService.cpfValido(this.aluno.cpf)) {
+      this.alunoService.showMessage("CPF inválido");
+      return;
+    }
+    
+    for (let curso of this.cursos) {
+      let idCurso = curso.id ? curso.id : 0;
+      let checkbox = document.getElementById(idCurso.toString()) as HTMLInputElement;
+      if (checkbox.checked) {
+        this.matriculas.push(idCurso);
+      }
+    }
+
+    this.aluno.cursos = this.matriculas;
+    this.alunoService.update(this.aluno).subscribe(() => {
+      this.alunoService.showMessage("Aluno atualizado com sucesso");
+      this.router.navigate(['/aluno']);
+    });
   }
 
   cancel(): void {

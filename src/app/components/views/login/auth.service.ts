@@ -18,6 +18,7 @@ export class AuthService {
 
   usuarioAutenticado: boolean = false;
   mostrarMenuEmitter = new EventEmitter<boolean>();
+  mostrarMenuUsuarioEmitter = new EventEmitter<boolean>();
 
   constructor(private snackBar: MatSnackBar,
     private http: HttpClient) { }

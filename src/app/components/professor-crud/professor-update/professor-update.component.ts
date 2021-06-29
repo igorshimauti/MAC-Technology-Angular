@@ -14,7 +14,7 @@ export class ProfessorUpdateComponent implements OnInit {
     id: undefined,
     nome: "",
     cpf: "",
-    dataNascimento: new Date,
+    dataNascimento: undefined,
     email: "",
     celular: "",
     enderecoResidencial: {
@@ -50,14 +50,18 @@ export class ProfessorUpdateComponent implements OnInit {
   update(): void {
     if (!this.professorService.cpfValido(this.professor.cpf)) {
       this.professorService.showMessage("CPF inválido");
-    } else if (!this.professorService.emailValido(this.professor.email)) {
-      this.professorService.showMessage("e-Mail inválido");
-    } else {
-      this.professorService.update(this.professor).subscribe(() => {
-        this.professorService.showMessage("Professor atualizado com sucesso");
-        this.router.navigate(["/professor"]);
-      });
+      return;
     }
+    
+    if (!this.professorService.emailValido(this.professor.email)) {
+      this.professorService.showMessage("e-Mail inválido");
+      return;
+    }
+
+    this.professorService.update(this.professor).subscribe(() => {
+      this.professorService.showMessage("Professor atualizado com sucesso");
+      this.router.navigate(["/professor"]);
+    });
   }
 
   cancel(): void {

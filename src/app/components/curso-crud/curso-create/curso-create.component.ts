@@ -25,11 +25,11 @@ export class CursoCreateComponent implements OnInit {
   create(): void {
     this.cursoService.create(this.curso).subscribe(() => {
       this.cursoService.showMessage('Curso cadastrado com sucesso.');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/curso']);
     })
   }
 
   cancel(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/curso']);
   }
 }

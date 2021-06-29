@@ -8,13 +8,13 @@ import { AuthService } from '../../views/login/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  mostrarLogout: boolean = false;
+  mostrarNomeUsuario: boolean = false;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.mostrarMenuEmitter.subscribe(mostrarLogout => {
-      this.mostrarLogout = mostrarLogout;
+    this.authService.mostrarMenuEmitter.subscribe(mostrarNomeUsuario => {
+      this.mostrarNomeUsuario = mostrarNomeUsuario;
     });
   }
 }

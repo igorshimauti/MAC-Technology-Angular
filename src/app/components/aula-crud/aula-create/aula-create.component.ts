@@ -22,8 +22,6 @@ export class AulaCreateComponent implements OnInit {
   alunos: Aluno[] = [];
   displayedColumns = ['id', 'nome', 'presente'];
 
-  presencas: number[] = [];
-
   constructor(private cursoService: CursoService,
     private aulaService: AulaService, 
     private router: Router) { }
@@ -35,15 +33,17 @@ export class AulaCreateComponent implements OnInit {
   }
 
   create(): void {
+    let presencas: number[] = [];
+
     for (let aluno of this.alunos) {
       let alunoId = aluno.id ? aluno.id : 0;
       let checkbox = document.getElementById(alunoId.toString()) as HTMLInputElement;
       if (checkbox.checked) {
-        this.presencas.push(alunoId);
+        presencas.push(alunoId);
       }
     }
 
-    this.aula.alunos = this.presencas;
+    this.aula.alunos = presencas;
     this.aulaService.create(this.aula).subscribe(() => {
       this.aulaService.showMessage("Aula cadastrada com sucesso");
       this.router.navigate(["/aula"]);

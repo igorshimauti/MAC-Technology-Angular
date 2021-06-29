@@ -27,11 +27,11 @@ export class CursoUpdateComponent implements OnInit {
   update(): void {
     this.cursoService.update(this.curso).subscribe(() => {
       this.cursoService.showMessage('Curso atualizado com sucesso.');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/curso']);
     });
   }
 
   cancel(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/curso']);
   }
 }
