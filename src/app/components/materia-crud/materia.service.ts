@@ -20,7 +20,6 @@ export class MateriaService {
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
   create(materia: Materia): Observable<Materia> {
-    console.log(materia);
     const url = `${this.baseUrl}/${this.cursoId}/materia`;
     return this.http.post<Materia>(url, materia, { headers: this.httpHeader });
   }

@@ -128,7 +128,7 @@ export class ProfessorService {
   }
 
   consultaCep(cep: string): Observable<any> {
-    const url = `http://viacep.com.br/ws/${cep}/json`;
+    const url = `https://viacep.com.br/ws/${cep}/json`;
     return this.http.get<any>(url);
   }
 
