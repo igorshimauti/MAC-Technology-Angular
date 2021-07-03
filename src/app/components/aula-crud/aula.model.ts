@@ -3,5 +3,5 @@ export interface Aula {
     tema: string,
     data?: Date,
     alunos: number[],
-    url: string
+    url?: string
 }
