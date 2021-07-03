@@ -16,7 +16,8 @@ export class AulaCreateComponent implements OnInit {
     id: undefined,
     tema: "",
     data: undefined,
-    alunos: []
+    alunos: [],
+    url: ""
   }
 
   alunos: Aluno[] = [];
