@@ -17,13 +17,13 @@
 }
 
 @media screen and (max-width: 768px) {
-    .side-nav {
+    .container {
         visibility: hidden;
     }
 }
 
 @media screen and (min-width: 769px) {
-    .side-nav {
+    .container {
         visibility: visible;
     }
 }
