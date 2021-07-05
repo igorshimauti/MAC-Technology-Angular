@@ -15,3 +15,9 @@
     padding: 10px;
     background-color: #ffffffbd;
 }
+
+@media screen and (max-width: 768px) {
+    .side-nav {
+        visibility: hidden;
+    }
+}

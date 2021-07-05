@@ -26,3 +26,23 @@
 .header .title-group i {
     padding-right: 0.25rem;
 }
+
+.header i {
+    padding-right: 0.625rem;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+
+    .header button {
+        visibility: visible;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .header button {
+        visibility: hidden;
+    }
+}

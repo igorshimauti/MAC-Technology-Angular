@@ -18,6 +18,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { FormsModule } from '@angular/forms';
 
@@ -135,6 +136,7 @@ registerLocaleData(localePt);
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
+    MatMenuModule,
     NgxMaskModule.forRoot({dropSpecialCharacters: false})
   ],
   providers: [{

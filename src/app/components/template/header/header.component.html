@@ -3,4 +3,68 @@
         <img class="logo" src="assets/logo.jpg" alt="logo">
         Missão de Águias Church
     </span>
+    <button *ngIf="mostrarMenu" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <i class="material-icons">
+            more_vert
+        </i>
+    </button>
+    <mat-menu #menu="matMenu">
+        <mat-nav-list class="nav-list">
+            <a *ngIf="mostrarMenuUsuario" mat-list-item routerLink="/usuario">
+                <i class="material-icons">
+                    manage_accounts
+                </i>
+                Usuários
+            </a>
+    
+            <a mat-list-item routerLink="/curso">
+                <i class="material-icons">
+                    home
+                </i>
+                Cursos
+            </a>
+    
+            <a mat-list-item routerLink="/aluno">
+                <i class="material-icons">
+                    school
+                </i>
+                Alunos
+            </a>
+    
+            <a mat-list-item routerLink="/professor">
+                <i class="material-icons">
+                    people
+                </i>
+                Professores
+            </a>
+    
+            <a mat-list-item routerLink="/materia">
+                <i class="material-icons">
+                    book
+                </i>
+                Matérias
+            </a>
+    
+            <a mat-list-item routerLink="/aula">
+                <i class="material-icons">
+                    bookmarks
+                </i>
+                Aulas
+            </a>
+    
+            <a mat-list-item routerLink="/tarefa">
+                <i class="material-icons">
+                    home_work
+                </i>
+                Tarefas
+            </a>
+    
+            <a mat-list-item routerLink="/logout">
+                <i class="material-icons">
+                    logout
+                </i>
+                Logout
+            </a>
+        </mat-nav-list>
+    </mat-menu>
 </mat-toolbar>
