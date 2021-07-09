@@ -2,58 +2,42 @@
     <mat-sidenav *ngIf="mostrarMenu" class="side-nav" mode="side" opened fixedInViewport fixedTopGap=64 fixedBottomGap=64>
         <mat-nav-list class="nav-list">
             <a *ngIf="mostrarMenuUsuario" mat-list-item routerLink="usuario">
-                <i class="material-icons">
-                    manage_accounts
-                </i>
+                <mat-icon>manage_accounts</mat-icon>
                 Usuários
             </a>
 
             <a mat-list-item routerLink="/curso">
-                <i class="material-icons">
-                    home
-                </i>
+                <mat-icon>home</mat-icon>
                 Cursos
             </a>
 
             <a mat-list-item routerLink="/aluno">
-                <i class="material-icons">
-                    school
-                </i>
+                <mat-icon>school</mat-icon>
                 Alunos
             </a>
 
             <a mat-list-item routerLink="/professor">
-                <i class="material-icons">
-                    people
-                </i>
+                <mat-icon>people</mat-icon>
                 Professores
             </a>
 
             <a mat-list-item routerLink="/materia">
-                <i class="material-icons">
-                    book
-                </i>
+                <mat-icon>book</mat-icon>
                 Matérias
             </a>
 
             <a mat-list-item routerLink="/aula">
-                <i class="material-icons">
-                    bookmarks
-                </i>
+                <mat-icon>bookmarks</mat-icon>
                 Aulas
             </a>
 
             <a mat-list-item routerLink="/tarefa">
-                <i class="material-icons">
-                    home_work
-                </i>
+                <mat-icon>home_work</mat-icon>
                 Tarefas
             </a>
 
             <a mat-list-item routerLink="/logout">
-                <i class="material-icons">
-                    logout
-                </i>
+                <mat-icon>logout</mat-icon>
                 Logout
             </a>
         </mat-nav-list>

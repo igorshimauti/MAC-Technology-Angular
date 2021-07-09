@@ -19,6 +19,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FormsModule } from '@angular/forms';
 
@@ -137,6 +138,7 @@ registerLocaleData(localePt);
     MatSortModule,
     MatSelectModule,
     MatMenuModule,
+    MatIconModule,
     NgxMaskModule.forRoot({dropSpecialCharacters: false})
   ],
   providers: [{
