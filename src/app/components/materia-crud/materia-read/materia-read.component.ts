@@ -14,7 +14,7 @@ export class MateriaReadComponent implements OnInit {
 
   cursos: Curso[] = [];
   materias: Materia[] = [];
-  displayedColumns = ['id', 'nome', 'actions'];
+  displayedColumns = ['nome', 'actions'];
 
   cursoId: string = "";
 

@@ -19,7 +19,7 @@ export class AulaReadComponent implements OnInit {
   materias: Materia[] = [];
   alunos: Aluno[] = [];
   aulas: Aula[] = [];
-  displayedColumns = ["id", "tema", "actions"]
+  displayedColumns = ["tema", "actions"]
 
   cursoId: string = "";
   materiaId: string = "";

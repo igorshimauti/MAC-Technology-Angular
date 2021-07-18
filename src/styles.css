@@ -16,7 +16,7 @@ form {
 }
 
 button {
-    margin: 1.25rem 0.9375rem 0rem 0rem;
+    margin: 0.5rem 0.5rem 0.5rem 0rem!important;
 }
 
 .msg-success {

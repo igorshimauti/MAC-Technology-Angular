@@ -17,11 +17,6 @@
         Nova aula
     </button>
     <table mat-table [dataSource]="aulas">
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>Id</th>
-            <td mat-cell *matCellDef="let row">{{row.id}}</td>
-        </ng-container>
-
         <ng-container matColumnDef="tema">
             <th mat-header-cell *matHeaderCellDef>Tema</th>
             <td mat-cell *matCellDef="let row">{{row.tema}}</td>

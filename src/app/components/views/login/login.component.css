@@ -8,8 +8,13 @@
     font-size: 1.1rem;
 }
 
-button {
-    margin-right: 0.3125rem;
+@media screen and (min-width: 769px) {
+    .teste {
+        display: flex;
+        /*flex-direction: row;*/
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -24,7 +29,7 @@ button {
     }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 436px) {
     .login .title {
         font-size: 1.5rem;
         font-weight: 150;

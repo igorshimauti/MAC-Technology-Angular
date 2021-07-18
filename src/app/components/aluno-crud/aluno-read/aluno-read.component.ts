@@ -10,7 +10,7 @@ import { AlunoService } from '../aluno.service';
 export class AlunoReadComponent implements OnInit {
 
   alunos: Aluno[] = [];
-  displayedColumns = ['id', 'nome', 'cpf', 'dataNascimento', 'email', 'celular', 'actions'];
+  displayedColumns = ['nome', 'cpf', 'dataNascimento', 'email', 'celular', 'actions'];
 
   constructor(private alunoService: AlunoService) { }
 

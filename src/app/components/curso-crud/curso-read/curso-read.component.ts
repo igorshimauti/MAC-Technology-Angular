@@ -10,7 +10,7 @@ import { CursoService } from '../curso.service';
 export class CursoReadComponent implements OnInit {
 
   cursos: Curso[] = [];
-  displayedColumns = ['id', 'nome', 'action'];
+  displayedColumns = ['nome', 'action'];
 
   constructor(private cursoService: CursoService) { }
 

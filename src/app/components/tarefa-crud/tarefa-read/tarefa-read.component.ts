@@ -17,7 +17,7 @@ export class TarefaReadComponent implements OnInit {
   cursos: Curso[] = [];
   materias: Materia[] = [];
   tarefas: Tarefa[] = [];
-  displayedColumns = ["id", "descricao", "data", "dataEntrega", "actions"]
+  displayedColumns = ["descricao", "data", "dataEntrega", "actions"]
 
   cursoId: string = "";
   materiaId: string = "";
